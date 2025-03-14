@@ -1,14 +1,7 @@
 component=cart
  source common.sh
 
-dnf install maven -y
-useradd roboshop
-cp shipping.service /etc/systemd/system/shipping.service
-artifact_download
-
-cd /app
-mvn clean package
-mv target/shipping-1.0.jar shipping.jar
+maven_app_setup
 
 dnf install mysql -y
 
