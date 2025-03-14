@@ -1,3 +1,7 @@
+component=cart
+ source common.sh
+
+
 dnf module disable nodejs -y
 dnf module enable nodejs:20 -y
 dnf install nodejs -y
@@ -13,9 +17,7 @@ cd /app
 unzip /tmp/catalogue.zip
 cd /app
 npm install
-systemctl daemon-reload
-systemctl enable catalogue
-systemctl restart catalogue
+systemd_setup
 dnf install mongodb-mongosh -y
 mongosh --host mongo-dev.jdevops18.online </app/db/master-data.js
 
