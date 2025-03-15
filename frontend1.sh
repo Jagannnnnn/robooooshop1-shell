@@ -1,5 +1,9 @@
 print_head() {
   echo -e "\e[35m$*\e[0m"
+  echo "################################" >> $log_file
+  echo -e "\e[35m$*\e[0m"
+    echo "################################" >> $log_file
+
 }
 log_file=/tmp/robooooshop1.log
 rm -f $log_file
