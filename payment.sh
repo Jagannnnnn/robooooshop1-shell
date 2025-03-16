@@ -1,4 +1,4 @@
-component=cart
+component=payment
  source common.sh
 
 
