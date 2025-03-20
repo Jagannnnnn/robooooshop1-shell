@@ -11,6 +11,6 @@ dnf install mongodb-mongosh -y &>> $log_file
   exit_status_print $?
 
 print_head load master data
-mongosh --host mongo-dev.jdevops18.online </app/db/master-data.js  &>> $log_file
+mongosh --host mongodb-dev.jdevops18.online </app/db/master-data.js  &>> $log_file
   exit_status_print $?
 
