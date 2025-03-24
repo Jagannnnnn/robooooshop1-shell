@@ -6,13 +6,10 @@ maven_app_setup
 print_head install mysql client
 dnf install mysql -y &>> $log_file
 
-print_head load schema
-mysql -h mysql-dev.jdevops18.online -uroot -pRoboShop@1 < /app/db/schema.sql &>> $log_file
+for file in schema app-user master-data; do
+print_head load schema $file
+mysql -h mysql-dev.jdevops18.online -uroot -pRoboShop@1 < /app/db/$file.sql &>> $log_file
+done
 
-print_head load user creation
-mysql -h mysql-dev.jdevops18.online -uroot -pRoboShop@1 < /app/db/app-user.sql &>> $log_file
 
-print_head load master data
-mysql -h mysql-dev.jdevops18.online -uroot -pRoboShop@1 < /app/db/master-data.sql &>> $log_file
 
-systemd_setup
